@@ -1,3 +1,7 @@
 <p>
-  Home
+  Welcome To Tekdi Technologies
 </p>
+<form #tempVar="ngForm" (ngSubmit)="setUrl(tempVar)">
+  Enter Host Site: <input [ngModel]="url" type="text" class="form-control" name="url"><br>
+  <input type="submit" value="Submit">
+</form>

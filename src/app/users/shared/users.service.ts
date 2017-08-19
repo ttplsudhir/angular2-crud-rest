@@ -9,13 +9,17 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class UsersService {
 
-  private url: string = "http://jsonplaceholder.typicode.com/users";
+  private url: string = "";
 
-  constructor(private http: Http) { }
-
+  constructor(private http: Http) { 
+        }
   getUsers(){
+     this.url = localStorage.hostUrl;
+    this.url = this.url+'users';
+    console.log(this.url);
     return this.http.get(this.url)
       .map(res => res.json());
+     
   }
 
   getUser(id){
@@ -24,8 +28,10 @@ export class UsersService {
   }
 
   addUser(user){
-    return this.http.post(this.url, JSON.stringify(user))
-      .map(res => res.json());
+     this.url = localStorage.hostUrl;
+     this.url = this.url+'posts';
+     return this.http.post(this.url, JSON.stringify(user))
+     .map(res => res.json());
   }
 
   updateUser(user){
