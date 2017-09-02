@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,6 +9,12 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  setUrl(form:NgForm){    
+    localStorage.removeItem("hostUrl");
+    localStorage.setItem("hostUrl", form.value.url);
+    alert("Thanks for submitting url, This url will be used as base url");
+    
+  }
   ngOnInit() {
   }
 

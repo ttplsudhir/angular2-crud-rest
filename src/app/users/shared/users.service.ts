@@ -14,7 +14,7 @@ export class UsersService {
   constructor(private http: Http) { 
         }
   getUsers(){
-     this.url = localStorage.hostUrl;
+    this.url = localStorage.hostUrl;
     this.url = this.url+'users';
     console.log(this.url);
     return this.http.get(this.url)
@@ -29,7 +29,7 @@ export class UsersService {
 
   addUser(user){
      this.url = localStorage.hostUrl;
-     this.url = this.url+'posts';
+     this.url = this.url+'/posts';
      return this.http.post(this.url, JSON.stringify(user))
      .map(res => res.json());
   }

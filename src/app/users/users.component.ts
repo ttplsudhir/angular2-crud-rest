@@ -16,6 +16,10 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.usersService.getUsers()
       .subscribe(data => this.users = data);
+      if(this.users)
+      {
+        console.log('Invalid Url');
+      }
   }
 
   deleteUser(user){
